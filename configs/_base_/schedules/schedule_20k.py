@@ -23,9 +23,10 @@ default_hooks = dict(
     sampler_seed=dict(type='DistSamplerSeedHook'),
     visualization=dict(type='SegVisualizationHook', draw=True, show=False, interval=50))
 
-log_config = dict(
-    interval=50,  # How often to log (in iterations)
-    hooks=[
-        dict(type='WandbLoggerHook', 
-             init_kwargs=dict(project='my-segmentation-project'))  # Replace with your WandB project name
-    ])
+# log_config = dict(
+#     interval=50,  # How often to log (in iterations)
+#     hooks=[
+#         dict(type='WandbLoggerHook', 
+#              interval=50,
+#              init_kwargs=dict(project='pipeline-segmentation'))  # Replace with your WandB project name
+#     ])
