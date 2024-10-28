@@ -24,16 +24,16 @@ optim_wrapper = dict(
 
 param_scheduler = [
     dict(
-        type='LinearLR', start_factor=1e-6, by_epoch=False, begin=0, end=1500),
+        type='LinearLR', start_factor=1e-6, by_epoch=False, begin=0, end=375),
     dict(
         type='PolyLR',
         eta_min=0.0,
         power=1.0,
-        begin=1500,
+        begin=375,
         end=50000,
         by_epoch=False,
     )
 ]
-train_dataloader = dict(batch_size=2, num_workers=2)
+train_dataloader = dict(batch_size=8, num_workers=8)
 val_dataloader = dict(batch_size=1, num_workers=4)
 test_dataloader = val_dataloader

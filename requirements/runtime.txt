@@ -5,3 +5,4 @@ prettytable
 scipy
 ftfy
 regex
+wandb
