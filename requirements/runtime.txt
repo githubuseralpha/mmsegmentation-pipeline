@@ -3,3 +3,6 @@ numpy
 packaging
 prettytable
 scipy
+ftfy
+regex
+wandb
