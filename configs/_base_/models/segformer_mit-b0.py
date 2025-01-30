@@ -6,7 +6,7 @@ data_preprocessor = dict(
     std=[58.395, 57.12, 57.375],
     bgr_to_rgb=True,
     pad_val=0,
-    seg_pad_val=255)
+    seg_pad_val=0)
 model = dict(
     type='EncoderDecoder',
     data_preprocessor=data_preprocessor,
@@ -32,14 +32,14 @@ model = dict(
         in_index=[0, 1, 2, 3],
         channels=256,
         dropout_ratio=0.1,
-        num_classes=19,
+        num_classes=2,
         norm_cfg=norm_cfg,
         align_corners=False,
-        loss_decode=dict(type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0, class_weight=[0.5, 6.5])
-        # [
-        #     dict(type='CrossEntropyLoss', loss_name='loss_ce', use_sigmoid=False, loss_weight=1.0),
-        #     dict(type='DiceLoss', loss_name='loss_dice', loss_weight=1.0)
-        # ]
+        loss_decode=#dict(type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0, class_weight=[0.5, 6.5])
+        [
+            dict(type='CrossEntropyLoss', loss_name='loss_ce', use_sigmoid=False, loss_weight=1.0),
+            dict(type='DiceLoss', loss_name='loss_dice', loss_weight=3.0)
+        ]
         ),
     # model training and testing settings
     train_cfg=dict(),
