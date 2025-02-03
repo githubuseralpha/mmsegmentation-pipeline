@@ -20,3 +20,6 @@ code --install-extension ms-python.python
 code --install-extension ms-toolsai.jupyter
 
 apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+
+git config --global user.email "patrykswiat@gmail.com"
+git config --global user.name "Patryk Swiat"

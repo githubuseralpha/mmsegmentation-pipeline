@@ -12,7 +12,7 @@ optim_wrapper = dict(type='OptimWrapper', optimizer=optimizer, clip_grad=None)
 #         by_epoch=False)
 # ]
 # training schedule for 20k
-train_cfg = dict(type='IterBasedTrainLoop', max_iters=25000, val_interval=750)
+train_cfg = dict(type='IterBasedTrainLoop', max_iters=50000, val_interval=750)
 val_cfg = dict(type='ValLoop')
 test_cfg = dict(type='TestLoop')
 default_hooks = dict(

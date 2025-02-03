@@ -12,7 +12,10 @@ train_pipeline = [
         keep_ratio=True),
     dict(type='RandomCrop', crop_size=crop_size, cat_max_ratio=0.75),
     dict(type='RandomFlip', prob=0.5),
+    dict(type='RGBShift', r_shift=(0, 0), g_shift=(0, 90), b_shift=(0, 140), prob=0.5),
+    dict(type='GaussianBlur', sigma=4.0, prob=0.5),
     dict(type='PhotoMetricDistortion'),
+    dict(type='RandomRotate', prob=0.25, degree=180, seg_pad_val=0),
     dict(type='PackSegInputs')
 ]
 test_pipeline = [
