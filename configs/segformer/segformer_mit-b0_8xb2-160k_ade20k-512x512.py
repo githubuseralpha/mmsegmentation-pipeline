@@ -14,7 +14,7 @@ optim_wrapper = dict(
     _delete_=True,
     type='OptimWrapper',
     optimizer=dict(
-        type='AdamW', lr=0.00002, betas=(0.9, 0.999), weight_decay=0.01),
+        type='AdamW', lr=0.00006, betas=(0.9, 0.999), weight_decay=0.01),
     paramwise_cfg=dict(
         custom_keys={
             'pos_block': dict(decay_mult=0.),
@@ -22,20 +22,19 @@ optim_wrapper = dict(
             'head': dict(lr_mult=10.)
         }))
 
-lr_config = dict(policy='fixed') 
 
-# param_scheduler = [
-    # dict(
-    #     type='LinearLR', start_factor=1e-6, by_epoch=False, begin=0, end=375),
-    # dict(
-    #     type='PolyLR',
-    #     eta_min=0.0,
-    #     power=1.0,
-    #     begin=375,
-    #     end=50000,
-    #     by_epoch=False,
-    # )
-# ]
+param_scheduler = [
+    dict(
+        type='LinearLR', start_factor=1e-6, by_epoch=False, begin=0, end=750),
+    dict(
+        type='PolyLR',
+        eta_min=0.0,
+        power=1.0,
+        begin=750,
+        end=50000,
+        by_epoch=False,
+    )
+]
 train_dataloader = dict(batch_size=16, num_workers=8)
 val_dataloader = dict(batch_size=1, num_workers=4)
 test_dataloader = val_dataloader
