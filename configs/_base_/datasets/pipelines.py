@@ -15,7 +15,11 @@ train_pipeline = [
     dict(type='RGBShift', r_shift=(0, 0), g_shift=(0, 90), b_shift=(0, 140), prob=0.5),
     dict(type='GaussianBlur', sigma=4.0, prob=0.5),
     dict(type='PhotoMetricDistortion'),
-    dict(type='RandomRotate', prob=0.25, degree=180, seg_pad_val=0),
+    dict(type='GaussianNoise', mean=0.0, std=0.1, prob=0.5),
+    dict(type="CLAHE2", prob=0.5),
+    dict(type='RandomGamma', prob=0.5),
+    dict(type='CoarseDropout', num_holes_range=(1, 3), hole_height_range=(0.1, 0.4), hole_width_range=(0.1, 0.4), p=0.5),
+    dict(type='RandomRotate', prob=0.5, degree=180, seg_pad_val=0),
     dict(type='PackSegInputs')
 ]
 test_pipeline = [
