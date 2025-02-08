@@ -31,7 +31,7 @@ param_scheduler = [
         eta_min=0.0,
         power=1.0,
         begin=750,
-        end=50000,
+        end=10500,
         by_epoch=False,
     )
 ]
