@@ -103,6 +103,7 @@ class SavePredictionHook(Hook):
             filename = data['data_samples'][0].img_path
             filename = os.path.basename(filename)
             img = data['inputs'][0]
+            # img = img.flip(dims=(0,))
             gt = data['data_samples'][0].gt_sem_seg.data
             with torch.no_grad():
                 img = self.standardize(img.float().cuda(), self.mean, self.std).unsqueeze(0)
